@@ -1,0 +1,591 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 2,
+    "identityHash": "f26ae64c000ddcecbdf14086065a8a59",
+    "entities": [
+      {
+        "tableName": "Forecast",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `date` TEXT, `dateTs` INTEGER NOT NULL, `week` INTEGER NOT NULL, `sunrise` TEXT, `sunset` TEXT, `riseBegin` TEXT, `setEnd` TEXT, `moonCode` INTEGER NOT NULL, `moonText` TEXT, `nightsource` TEXT, `nighttempMin` INTEGER, `nighttempMax` INTEGER, `nighttempAvg` INTEGER, `nightfeelsLike` INTEGER, `nighticon` TEXT, `nightcondition` TEXT, `nightdaytime` TEXT, `nightpolar` INTEGER, `nightwindSpeed` REAL, `nightwindGust` REAL, `nightwindDir` TEXT, `nightpressureMm` INTEGER, `nightpressurePa` INTEGER, `nighthumidity` INTEGER, `nightuvIndex` INTEGER, `nightsoilTemp` INTEGER, `nightsoilMoisture` REAL, `nightprecMm` REAL, `nightprecPeriod` INTEGER, `nightprecProb` INTEGER, `morningsource` TEXT, `morningtempMin` INTEGER, `morningtempMax` INTEGER, `morningtempAvg` INTEGER, `morningfeelsLike` INTEGER, `morningicon` TEXT, `morningcondition` TEXT, `morningdaytime` TEXT, `morningpolar` INTEGER, `morningwindSpeed` REAL, `morningwindGust` REAL, `morningwindDir` TEXT, `morningpressureMm` INTEGER, `morningpressurePa` INTEGER, `morninghumidity` INTEGER, `morninguvIndex` INTEGER, `morningsoilTemp` INTEGER, `morningsoilMoisture` REAL, `morningprecMm` REAL, `morningprecPeriod` INTEGER, `morningprecProb` INTEGER, `daysource` TEXT, `daytempMin` INTEGER, `daytempMax` INTEGER, `daytempAvg` INTEGER, `dayfeelsLike` INTEGER, `dayicon` TEXT, `daycondition` TEXT, `daydaytime` TEXT, `daypolar` INTEGER, `daywindSpeed` REAL, `daywindGust` REAL, `daywindDir` TEXT, `daypressureMm` INTEGER, `daypressurePa` INTEGER, `dayhumidity` INTEGER, `dayuvIndex` INTEGER, `daysoilTemp` INTEGER, `daysoilMoisture` REAL, `dayprecMm` REAL, `dayprecPeriod` INTEGER, `dayprecProb` INTEGER, `eveningsource` TEXT, `eveningtempMin` INTEGER, `eveningtempMax` INTEGER, `eveningtempAvg` INTEGER, `eveningfeelsLike` INTEGER, `eveningicon` TEXT, `eveningcondition` TEXT, `eveningdaytime` TEXT, `eveningpolar` INTEGER, `eveningwindSpeed` REAL, `eveningwindGust` REAL, `eveningwindDir` TEXT, `eveningpressureMm` INTEGER, `eveningpressurePa` INTEGER, `eveninghumidity` INTEGER, `eveninguvIndex` INTEGER, `eveningsoilTemp` INTEGER, `eveningsoilMoisture` REAL, `eveningprecMm` REAL, `eveningprecPeriod` INTEGER, `eveningprecProb` INTEGER)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "date",
+            "columnName": "date",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "dateTs",
+            "columnName": "dateTs",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "week",
+            "columnName": "week",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sunrise",
+            "columnName": "sunrise",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "sunset",
+            "columnName": "sunset",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "riseBegin",
+            "columnName": "riseBegin",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "setEnd",
+            "columnName": "setEnd",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "moonCode",
+            "columnName": "moonCode",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "moonText",
+            "columnName": "moonText",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.night.source",
+            "columnName": "nightsource",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.night.tempMin",
+            "columnName": "nighttempMin",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.night.tempMax",
+            "columnName": "nighttempMax",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.night.tempAvg",
+            "columnName": "nighttempAvg",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.night.feelsLike",
+            "columnName": "nightfeelsLike",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.night.icon",
+            "columnName": "nighticon",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.night.condition",
+            "columnName": "nightcondition",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.night.daytime",
+            "columnName": "nightdaytime",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.night.polar",
+            "columnName": "nightpolar",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.night.windSpeed",
+            "columnName": "nightwindSpeed",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.night.windGust",
+            "columnName": "nightwindGust",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.night.windDir",
+            "columnName": "nightwindDir",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.night.pressureMm",
+            "columnName": "nightpressureMm",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.night.pressurePa",
+            "columnName": "nightpressurePa",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.night.humidity",
+            "columnName": "nighthumidity",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.night.uvIndex",
+            "columnName": "nightuvIndex",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.night.soilTemp",
+            "columnName": "nightsoilTemp",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.night.soilMoisture",
+            "columnName": "nightsoilMoisture",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.night.precMm",
+            "columnName": "nightprecMm",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.night.precPeriod",
+            "columnName": "nightprecPeriod",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.night.precProb",
+            "columnName": "nightprecProb",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.morning.source",
+            "columnName": "morningsource",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.morning.tempMin",
+            "columnName": "morningtempMin",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.morning.tempMax",
+            "columnName": "morningtempMax",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.morning.tempAvg",
+            "columnName": "morningtempAvg",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.morning.feelsLike",
+            "columnName": "morningfeelsLike",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.morning.icon",
+            "columnName": "morningicon",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.morning.condition",
+            "columnName": "morningcondition",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.morning.daytime",
+            "columnName": "morningdaytime",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.morning.polar",
+            "columnName": "morningpolar",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.morning.windSpeed",
+            "columnName": "morningwindSpeed",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.morning.windGust",
+            "columnName": "morningwindGust",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.morning.windDir",
+            "columnName": "morningwindDir",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.morning.pressureMm",
+            "columnName": "morningpressureMm",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.morning.pressurePa",
+            "columnName": "morningpressurePa",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.morning.humidity",
+            "columnName": "morninghumidity",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.morning.uvIndex",
+            "columnName": "morninguvIndex",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.morning.soilTemp",
+            "columnName": "morningsoilTemp",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.morning.soilMoisture",
+            "columnName": "morningsoilMoisture",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.morning.precMm",
+            "columnName": "morningprecMm",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.morning.precPeriod",
+            "columnName": "morningprecPeriod",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.morning.precProb",
+            "columnName": "morningprecProb",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.day.source",
+            "columnName": "daysource",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.day.tempMin",
+            "columnName": "daytempMin",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.day.tempMax",
+            "columnName": "daytempMax",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.day.tempAvg",
+            "columnName": "daytempAvg",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.day.feelsLike",
+            "columnName": "dayfeelsLike",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.day.icon",
+            "columnName": "dayicon",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.day.condition",
+            "columnName": "daycondition",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.day.daytime",
+            "columnName": "daydaytime",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.day.polar",
+            "columnName": "daypolar",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.day.windSpeed",
+            "columnName": "daywindSpeed",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.day.windGust",
+            "columnName": "daywindGust",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.day.windDir",
+            "columnName": "daywindDir",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.day.pressureMm",
+            "columnName": "daypressureMm",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.day.pressurePa",
+            "columnName": "daypressurePa",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.day.humidity",
+            "columnName": "dayhumidity",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.day.uvIndex",
+            "columnName": "dayuvIndex",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.day.soilTemp",
+            "columnName": "daysoilTemp",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.day.soilMoisture",
+            "columnName": "daysoilMoisture",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.day.precMm",
+            "columnName": "dayprecMm",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.day.precPeriod",
+            "columnName": "dayprecPeriod",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.day.precProb",
+            "columnName": "dayprecProb",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.evening.source",
+            "columnName": "eveningsource",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.evening.tempMin",
+            "columnName": "eveningtempMin",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.evening.tempMax",
+            "columnName": "eveningtempMax",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.evening.tempAvg",
+            "columnName": "eveningtempAvg",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.evening.feelsLike",
+            "columnName": "eveningfeelsLike",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.evening.icon",
+            "columnName": "eveningicon",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.evening.condition",
+            "columnName": "eveningcondition",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.evening.daytime",
+            "columnName": "eveningdaytime",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.evening.polar",
+            "columnName": "eveningpolar",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.evening.windSpeed",
+            "columnName": "eveningwindSpeed",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.evening.windGust",
+            "columnName": "eveningwindGust",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.evening.windDir",
+            "columnName": "eveningwindDir",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.evening.pressureMm",
+            "columnName": "eveningpressureMm",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.evening.pressurePa",
+            "columnName": "eveningpressurePa",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.evening.humidity",
+            "columnName": "eveninghumidity",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.evening.uvIndex",
+            "columnName": "eveninguvIndex",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.evening.soilTemp",
+            "columnName": "eveningsoilTemp",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.evening.soilMoisture",
+            "columnName": "eveningsoilMoisture",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.evening.precMm",
+            "columnName": "eveningprecMm",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.evening.precPeriod",
+            "columnName": "eveningprecPeriod",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parts.evening.precProb",
+            "columnName": "eveningprecProb",
+            "affinity": "INTEGER",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"f26ae64c000ddcecbdf14086065a8a59\")"
+    ]
+  }
+}
