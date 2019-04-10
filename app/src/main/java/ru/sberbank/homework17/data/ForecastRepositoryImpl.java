@@ -4,11 +4,11 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
-import java.io.IOException;
 import java.util.List;
 
 import javax.inject.Inject;
 
+import io.reactivex.Observable;
 import ru.sberbank.homework17.WeatherApplication;
 import ru.sberbank.homework17.data.cache.room.WeatherDB;
 import ru.sberbank.homework17.data.net.retrofit.ApiMapper;
@@ -34,29 +34,25 @@ public class ForecastRepositoryImpl implements ForecastRepository {
     }
 
     @Override
-    public Forecasts getForecast(String latitude, String longitude) throws IOException {
-        List<Forecast> forecast = null;
+    public Observable<Forecasts> getForecast(String latitude, String longitude) {
         if (isOnline()) {
-            forecast = getForecastsFromNetwork();
-        } else {
-            forecast = getForecastsFromDataBase();
-        }
+            return getForecastsFromNetwork();
+        } else return getForecastsFromDataBase();
 
+    }
+
+    private Observable<Forecasts> getForecastsFromNetwork() {
+        return apiMapper.getForecast()
+                .doOnNext(s -> weatherDB.getWeatherDAO().setDailyForecasts(s.getForecasts()));
+
+    }
+
+    private Observable<Forecasts> getForecastsFromDataBase() {
+
+        List<Forecast> list = weatherDB.getWeatherDAO().getForecast();
         Forecasts forecasts = new Forecasts();
-        forecasts.setForecasts(forecast);
-        return forecasts;
-    }
-
-    private List<Forecast> getForecastsFromNetwork() throws IOException {
-        List<Forecast> forecasts = apiMapper.getForecastSync().getForecasts();
-
-        weatherDB.getWeatherDAO().setDailyForecasts(forecasts);
-        return forecasts;
-    }
-
-    private List<Forecast> getForecastsFromDataBase() {
-
-        return weatherDB.getWeatherDAO().getForecast();
+        forecasts.setForecasts(list);
+        return Observable.just(forecasts);
     }
 
     public boolean isOnline() {

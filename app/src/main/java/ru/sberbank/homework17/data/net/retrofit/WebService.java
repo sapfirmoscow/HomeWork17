@@ -1,6 +1,6 @@
 package ru.sberbank.homework17.data.net.retrofit;
 
-import retrofit2.Call;
+import io.reactivex.Observable;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.Query;
@@ -20,5 +20,5 @@ public interface WebService {
      */
 
     @GET("forecast/")
-    Call<Forecasts> getCurrentForecast(@Header("X-Yandex-API-Key") String apiKey, @Query("lat") String lat, @Query("lon") String lon, @Query("extra") boolean isExtra, @Query("hours") boolean isHours, @Query("limit") int limit);
+    Observable<Forecasts> getCurrentForecast(@Header("X-Yandex-API-Key") String apiKey, @Query("lat") String lat, @Query("lon") String lon, @Query("extra") boolean isExtra, @Query("hours") boolean isHours, @Query("limit") int limit);
 }

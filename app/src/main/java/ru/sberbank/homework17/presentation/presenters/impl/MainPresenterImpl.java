@@ -2,23 +2,19 @@ package ru.sberbank.homework17.presentation.presenters.impl;
 
 import javax.inject.Inject;
 
-import ru.sberbank.homework17.domain.entity.Forecasts;
-import ru.sberbank.homework17.domain.executor.Executor;
-import ru.sberbank.homework17.domain.executor.MainThread;
+import io.reactivex.android.schedulers.AndroidSchedulers;
 import ru.sberbank.homework17.domain.repository.ForecastRepository;
 import ru.sberbank.homework17.domain.usecase.GetForecast;
 import ru.sberbank.homework17.domain.usecase.impl.GetForecastImpl;
 import ru.sberbank.homework17.presentation.presenters.MainPresenter;
-import ru.sberbank.homework17.presentation.presenters.base.AbstractPresenter;
 
-public class MainPresenterImpl extends AbstractPresenter implements MainPresenter, GetForecast.Callback {
+public class MainPresenterImpl implements MainPresenter {
 
     MainPresenter.View mView;
     ForecastRepository mForecastRepository;
 
     @Inject
-    public MainPresenterImpl(Executor executor, MainThread mainThread, View view, ForecastRepository forecastRepository) {
-        super(executor, mainThread);
+    public MainPresenterImpl(View view, ForecastRepository forecastRepository) {
         mView = view;
         mForecastRepository = forecastRepository;
     }
@@ -27,8 +23,10 @@ public class MainPresenterImpl extends AbstractPresenter implements MainPresente
     @Override
     public void resume() {
         mView.showProgress();
-        GetForecast getForecast = new GetForecastImpl(mExecutor, mMainThread, this, mForecastRepository);
-        getForecast.execute();
+        GetForecast getForecast = new GetForecastImpl(mForecastRepository);
+        getForecast.getWeather().
+                observeOn(AndroidSchedulers.mainThread())
+                .subscribe(s -> mView.displayWeather(s));
 
     }
 
@@ -52,13 +50,4 @@ public class MainPresenterImpl extends AbstractPresenter implements MainPresente
 
     }
 
-    @Override
-    public void onMessageRetrieved(Forecasts forecasts) {
-        mView.displayWeather(forecasts);
-    }
-
-    @Override
-    public void onRetrievalFailed() {
-
-    }
 }

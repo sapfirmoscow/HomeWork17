@@ -1,39 +1,22 @@
 package ru.sberbank.homework17.domain.usecase.impl;
 
-import java.io.IOException;
-
+import io.reactivex.Observable;
 import ru.sberbank.homework17.domain.entity.Forecasts;
-import ru.sberbank.homework17.domain.executor.Executor;
-import ru.sberbank.homework17.domain.executor.MainThread;
 import ru.sberbank.homework17.domain.repository.ForecastRepository;
 import ru.sberbank.homework17.domain.usecase.GetForecast;
-import ru.sberbank.homework17.domain.usecase.base.AbstractUseCase;
 
-public class GetForecastImpl extends AbstractUseCase implements GetForecast {
+public class GetForecastImpl implements GetForecast {
 
-    private GetForecast.Callback mCallback;
     private ForecastRepository mForecastRepository;
 
 
-    public GetForecastImpl(Executor threadExecutor, MainThread mainThread, Callback callback, ForecastRepository forecastRepository) {
-        super(threadExecutor, mainThread);
-        mCallback = callback;
+    public GetForecastImpl(ForecastRepository forecastRepository) {
         mForecastRepository = forecastRepository;
-
-    }
-
-
-    private void postMessage(Forecasts forecasts) {
-        mMainThread.post(() -> mCallback.onMessageRetrieved(forecasts));
     }
 
     @Override
-    public void run() {
-
-        try {
-            postMessage(mForecastRepository.getForecast("", ""));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public Observable<Forecasts> getWeather() {
+        return mForecastRepository.getForecast("", "");
     }
+
 }
